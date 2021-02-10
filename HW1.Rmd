@@ -24,13 +24,14 @@ and $\alpha(.8)$ is the lower tail of a binomial distribution.
 
 According to the equation: 
 $$z =\frac{\hat{p}-p_o}{\sqrt{\frac{p_o(1-p_o)}{n}}}$$
-We can get $$\hat{p} = 1.65 * sqrt(0.6*0.4) / 10 + 0.6 = 0.68$$
-Thus $$ m = 0.68*n = 68$$
+We can get $$\hat{p} = 1.65 * sqrt(0.6*0.4) / 10 + 0.6 = 0.6808$$
+Thus $$ m = 0.6808*n = 68.08$$
+this indicates m has to be at least 69.
 
 Similarly, 
 $$\hat{p} = -1.65 * sqrt(0.8*0.2) / 10 + 0.8 = 0.73$$
 $$ m = 0.73*n = 73$$
-Thus, n is in [68,73]
+Thus, n is in [69,73]
 
 ## 2.Power Curve Plots
 ```{r}
