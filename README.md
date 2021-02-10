@@ -1,1 +1,2 @@
-# MA677_HW1
+# Assignment 1 for MA677
+# Hypothesis Testing
