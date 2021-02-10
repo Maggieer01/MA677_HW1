@@ -1,0 +1,51 @@
+---
+title: "MA677_Assignment1"
+author: "Maggie Sha"
+date: "2/10/2021"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+# 1.Find m is in [69,73]
+
+From the context, the significance level is 0.05. This indicates that it is acceptable
+to have a 5% probability of incorrectly rejecting the true null hypothesis (Type I error).
+
+Referring to Z-table, we have z = 1.65 or z = -1.65.
+
+We also know that $\alpha(.6)$ is the upper tail of the a binomial distribution,
+and $\alpha(.8)$ is the lower tail of a binomial distribution.
+
+According to the equation: 
+$$z =\frac{\hat{p}-p_o}{\sqrt{\frac{p_o(1-p_o)}{n}}}$$
+We can get $$\hat{p} = 1.65 * sqrt(0.6*0.4) / 10 + 0.6 = 0.68$$
+Thus $$ m = 0.68*n = 68$$
+
+Similarly, 
+$$\hat{p} = -1.65 * sqrt(0.8*0.2) / 10 + 0.8 = 0.73$$
+$$ m = 0.73*n = 73$$
+Thus, n is in [68,73]
+
+## 2.Power Curve Plots
+```{r}
+f1 <- function(p){
+  P1 <- 1 - pbinom(68,100,p)
+}
+f2 <- function(p) {
+  P2 <- 1 - pbinom(73,100,p)
+}
+ggplot() +
+  stat_function(fun = f1) +
+  stat_function(fun = f2) +
+  scale_x_continuous(limits = c(0.4, 1)) +
+  scale_y_continuous(breaks= seq(0, 1, 0.1)) +
+  annotate("rect", xmin = 0.6, xmax = 0.8, 
+           ymin = 0.05, ymax = 0.95, alpha = 0.1, color = "black", fill = NA)
+```
+
